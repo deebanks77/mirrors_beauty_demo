@@ -1,26 +1,391 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --wine: #43110f;
+  --wine-deep: #2d0a09;
+  --ink: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.header {
+  position: relative;
+  z-index: 10;
+  background: #fff;
+}
+
+.utility {
+  height: 124px;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #8d0f18;
+  font-family: "Italiana", Georgia, serif;
+  line-height: 0.86;
+}
+
+.logo span {
+  font-size: 39px;
+  letter-spacing: 3px;
+}
+
+.logo small {
+  font-size: 11px;
+  letter-spacing: 8px;
+  margin: 11px 0 0 7px;
+}
+
+.utilityRight {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.iconButton,
+.country {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: #4a4a4a;
+  padding: 5px;
+}
+
+.iconButton svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.search {
+  justify-self: start;
+}
+
+.country {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.flag {
+  width: 20px;
+  height: 12px;
+  background: linear-gradient(#009246 0 33.33%, #fff 33.33% 66.66%, #ce2b37 66.66%);
+  box-shadow: 0 0 0 1px #ddd;
+}
+
+.bag {
+  position: relative;
+}
+
+.bag b {
+  position: absolute;
+  right: -2px;
+  top: 17px;
+  min-width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 9px;
+  line-height: 13px;
+  text-align: center;
+}
+
+.nav {
+  height: 53px;
+  background: var(--wine);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 31px;
+  padding: 0 28px;
+}
+
+.nav a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.nav a span {
+  margin-left: 5px;
+  font-size: 9px;
+}
+
+.hero {
+  height: 280px;
+  overflow: hidden;
+  background: #b91e20;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  filter: saturate(0.75) contrast(1.05);
+}
+
+.categories {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 31px 0 42px;
+}
+
+.categories h1 {
+  font-size: 23px;
+  line-height: 1.2;
+  font-weight: 500;
+  margin: 0 0 27px;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.categoryCard {
+  min-width: 0;
+}
+
+.categoryImage {
+  display: block;
+  height: 254px;
+  overflow: hidden;
+  background: #eee;
+}
+
+.categoryImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.categoryCard:hover .categoryImage img {
+  transform: scale(1.025);
+}
+
+.categoryCard h2 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 14px 0 5px;
+}
+
+.categoryCard p {
+  min-height: 38px;
+  color: #777;
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 0 0 9px;
+}
+
+.shopButton {
+  height: 31px;
+  border: 1px solid #c8c8c8;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: 0.2s;
+}
+
+.shopButton:hover {
+  background: var(--wine);
+  border-color: var(--wine);
+  color: #fff;
+}
+
+.saleBanner {
+  height: 230px;
+  background: linear-gradient(135deg, #f7f6f4, #eee9e4);
+  text-align: center;
+  padding-top: 43px;
+  position: relative;
+}
+
+.ribbon {
+  position: fixed;
+  z-index: 20;
+  left: 16px;
+  bottom: 20px;
+  height: 45px;
+  border-radius: 999px;
+  padding: 0 23px;
+  background: #865d8e;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.saleBanner h2 {
+  margin: 0 0 10px;
+  font-size: 30px;
+  letter-spacing: -0.02em;
+}
+
+.saleBanner p {
+  margin: 0;
+  font-size: 13px;
+}
+
+@media (max-width: 1200px) {
+  .utility {
+    margin: 0 28px;
+  }
+
+  .nav {
+    gap: 14px;
+    padding: 0 18px;
+  }
+
+  .nav a {
+    font-size: 10px;
+  }
+
+  .categories {
+    margin: 0 28px;
+  }
+}
+
+@media (max-width: 900px) {
+  .utility {
+    height: 92px;
+  }
+
+  .logo span {
+    font-size: 31px;
+  }
+
+  .nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  .hero {
+    height: 220px;
+  }
+
+  .categoryGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .categoryImage {
+    height: 260px;
+  }
+}
+
+@media (max-width: 560px) {
+  .utility {
+    height: 78px;
+    margin: 0 16px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .logo span {
+    font-size: 27px;
+  }
+
+  .logo small {
+    font-size: 8px;
+  }
+
+  .utilityRight {
+    gap: 3px;
+  }
+
+  .country {
+    display: none;
+  }
+
+  .nav {
+    height: 44px;
+    gap: 22px;
+  }
+
+  .hero {
+    height: 190px;
+  }
+
+  .categories {
+    margin: 0 16px;
+    padding-top: 24px;
+  }
+
+  .categories h1 {
+    font-size: 19px;
+  }
+
+  .categoryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .categoryImage {
+    height: 210px;
+  }
+
+  .categoryCard h2 {
+    font-size: 14px;
+  }
+
+  .categoryCard p {
+    min-height: 56px;
+    font-size: 12px;
+  }
+
+  .saleBanner h2 {
+    font-size: 22px;
+    padding: 0 16px;
+  }
+
+  .saleBanner p {
+    padding: 0 25px;
+    line-height: 1.5;
+  }
 }
