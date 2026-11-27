@@ -173,7 +173,6 @@ export default function Home() {
       </section>
 
       <section className="saleBanner">
-        <div className="ribbon"><span>★</span> Rewards</div>
         <h2>SHOP BLACK FRIDAY BY CATEGORY</h2>
         <p>Discover 25% off our favourite beauty essentials, from makeup and skincare to luxury fragrances and body care.</p>
       </section>

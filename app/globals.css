@@ -243,23 +243,6 @@ button {
   position: relative;
 }
 
-.ribbon {
-  position: fixed;
-  z-index: 20;
-  left: 16px;
-  bottom: 20px;
-  height: 45px;
-  border-radius: 999px;
-  padding: 0 23px;
-  background: #865d8e;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
 .saleBanner h2 {
   margin: 0 0 10px;
   font-size: 30px;
@@ -269,6 +252,19 @@ button {
 .saleBanner p {
   margin: 0;
   font-size: 13px;
+}
+
+.sx-pos-bottom-right .sx-launcher,
+.sx-pos-bottom-right .sx-preview,
+.sx-pos-bottom-right .sx-greeting,
+.sx-pos-bottom-right .sx-msgpops,
+.sx-pos-bottom-right .sx-panel {
+  right: auto !important;
+  left: 20px !important;
+}
+
+.sx-pos-bottom-right .sx-panel {
+  transform-origin: bottom left !important;
 }
 
 @media (max-width: 1200px) {
